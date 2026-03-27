@@ -15,7 +15,7 @@ flow, aligned with the CN0540 quickstart structure.
 Supported carriers
 -------------------------------------------------------------------------------
 
-The currently documented carrier is:
+The currently supported carrier is:
 
 - :xilinx:`ZCU102 <products/boards-and-kits/ek-u1-zcu102-g.html>` on HPC0
 

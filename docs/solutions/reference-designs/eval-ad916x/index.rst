@@ -18,9 +18,6 @@ The HDL design supports configurable JESD operation modes, lane rates, and
 device variants from a common build framework. For Linux bring-up, ADI Kuiper
 images and ADI Linux device trees are available for supported ZynqMP platforms.
 
-.. IMAGE PLACEHOLDER: EVAL-AD916X board top-view photo
-.. IMAGE PLACEHOLDER: EVAL-AD916X mounted on ZCU102 (HPC0) setup photo
-
 Features
 -------------------------------------------------------------------------------
 
