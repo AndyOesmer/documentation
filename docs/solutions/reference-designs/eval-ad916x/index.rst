@@ -9,11 +9,16 @@ Overview
 -------------------------------------------------------------------------------
 
 The :adi:`AD9161 <AD9161>`, :adi:`AD9162 <AD9162>`, :adi:`AD9163 <AD9163>`,
-and :adi:`AD9164 <AD9164>` are high speed RF DACs intended for demanding
-wideband transmitter applications. The AD916x-FMC HDL reference design provides
-a validated path to evaluate JESD204 link bring-up, DAC data transport, and
-clocking on supported FPGA carriers.
+and :adi:`AD9164 <AD9164>` is a high performance, 16-bit (AD9164, AD9163, AD9162)/11-bit 
+(AD9161) resolution digital-to-analog converter (DAC) that supports data rates to 
+6 GSPS.
+The AD916x-FMC HDL reference design provides a validated path to evaluate JESD204 
+link bring-up, DAC data transport, and clocking on supported FPGA carriers.
 
+The DAC core is based on a quad-switch architecture coupled with a 2x interpolator 
+filter that enables an effective DAC update rate of up to 12 GSPS in some modes. 
+The high dynamic range and bandwidth makes this DAC ideally suited for the most demanding 
+high speed radio frequency (RF) DAC applications.
 The HDL design supports configurable JESD operation modes, lane rates, and
 device variants from a common build framework. For Linux bring-up, ADI Kuiper
 images and ADI Linux device trees are available for supported ZynqMP platforms.
@@ -62,7 +67,6 @@ Table of Contents
 
 #. :ref:`eval-ad916x user-guide`
 #. :ref:`eval-ad916x prerequisites`
-#. :ref:`eval-ad916x iio-oscilloscope`
 #. :ref:`eval-ad916x quickstart`
 
 Block Diagram

@@ -32,7 +32,7 @@ Supported environments
    - - :xilinx:`ZCU102 <products/boards-and-kits/ek-u1-zcu102-g.html>`
      - Yes
      - Yes
-     - Yes
+     - No
 
 Hardware setup
 -------------------------------------------------------------------------------
@@ -45,17 +45,3 @@ ZCU102 + EVAL-AD9164
 
 .. image:: ../images/ad9164fmc+zcu102.png
    :width: 800
-
-
-
-.. ZCU102 setup sequence follows the same practical order used in ADI ZCU102
-.. quickstarts:
-
-.. #. Insert SD card.
-.. #. Connect FMC board on HPC0.
-.. #. Connect UART (J83) and Ethernet.
-.. #. Set SD boot mode on SW6.
-.. #. Power on and monitor UART boot logs.
-
-.. For local GUI flow, connect DisplayPort plus keyboard/mouse. For remote flow,
-.. use host IIO-Oscilloscope over Ethernet.

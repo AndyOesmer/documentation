@@ -15,10 +15,9 @@ Hardware prerequisites
    on HPC0
 #. A method to interact with the platform:
 
-   #. For Linux/no-OS on ZCU102:
+   #. For Linux on ZCU102:
 
       - USB-UART cable (115200 baud, 8N1)
-      - JTAG connection for programming/debug as needed
       - Ethernet connection for Linux network access
       - Optional DisplayPort monitor + keyboard/mouse for local desktop flow
 
@@ -45,7 +44,6 @@ Software prerequisites
 #. One of the software control paths:
 
    - ADI Linux/Kuiper image workflow for runtime bring-up
-   - no-OS workflow for direct control and test
 
 #. Optional host tools:
 
