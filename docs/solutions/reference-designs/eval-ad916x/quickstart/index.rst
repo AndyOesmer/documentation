@@ -3,8 +3,8 @@
 Quickstart
 ===============================================================================
 
-This quickstart provides a baseline setup for the AD916x-FMC reference design
-flow, aligned with the CN0540 quickstart structure.
+The Quick Start Guides provide simple step by step instructions on how to do 
+an initial system setup for the :adi:`EVAL-AD916X` boards.
 
 .. toctree::
 
@@ -37,8 +37,10 @@ Supported environments
 Hardware setup
 -------------------------------------------------------------------------------
 
-The :adi:`EVAL-AD916X` connects to the ZCU102 through the FMC connector (HPC0),
-with UART and JTAG or Ethernet connections as needed by your software flow.
+The :adi:`EVAL-AD916X` connects to the :xilinx:`ZCU102 <products/boards-and-kits/ek-u1-zcu102-g.html>` 
+through the FMC connector (HPC0). The carrier setup requres a power supply, 
+UART or Ethernet connections as needed. An RF spectrum analyzer can be used to 
+verify and visualize the DAC output spectrum.
 
 ZCU102 + EVAL-AD9164
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

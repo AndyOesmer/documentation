@@ -3,70 +3,86 @@
 Prerequisites
 ===============================================================================
 
-The required setup depends on whether you run HDL-only bring-up, Linux-based
-bring-up, or no-OS software control. As a minimum, start with the items below.
+What you need, depends on what you are trying to do. As a minimum, you need to 
+start out with:
 
 Hardware prerequisites
 -------------------------------------------------------------------------------
 
-#. :adi:`EVAL-AD916X-FMCZ <EVAL-AD916X>` evaluation board
+#. The AD916X-based evaluation board::adi:`EVAL-AD916X-FMCZ <EVAL-AD916X>` evaluation board
 #. A supported FPGA carrier platform, currently
    :xilinx:`ZCU102 <products/boards-and-kits/ek-u1-zcu102-g.html>`
    on HPC0
-#. A method to interact with the platform:
+#. An FPGA carrier platform. Our recommended ones can be found
+   :ref:`here <eval-ad916x carriers>`.
 
-   #. For Linux on ZCU102:
+   - There are a few more boards, which do work, but are currently not
+     supported by us. The experience with the fabric-only solutions is very
+     close to the ARM/FPGA SoC based solutions, but the GUI runs on a host PC
+     (Windows or Linux).
 
-      - USB-UART cable (115200 baud, 8N1)
-      - Ethernet connection for Linux network access
-      - Optional DisplayPort monitor + keyboard/mouse for local desktop flow
+#. Some way to interact with the FPGA platform:
 
-#. A stable power source for the carrier and bench setup
-#. Optional external clock source for JESD modes that require external clocking
-   (J61 unmounted)
-#. RF measurement equipment for validation:
+   #. for the ARM/FPGA SoC platforms, this normally includes:
 
-   - Spectrum analyzer or RF signal analyzer
-   - Coaxial SMA cables and attenuators as needed
+      - HDMI or DisplayPort monitor
+      - USB Keyboard
+      - USB Mouse
+
+   #. for the FPGA only solutions, this includes:
+
+      - LAN cable (Ethernet)
+      - Host PC (Windows or Linux)
+
+#. Internet connection (without proxies makes things much easier) to update
+   the scripts/binaries on the SD card that came with the ADI FMC Card
+   (firewalls are OK, proxies make things a pain).
+
+#. RF Test Equipment:
+
+   - RF spectrum analyzer or signal analyzer (to measure and visualize the 
+     DAC output spectrum and performance)
+   - SMA cables
+
+#. An SD card with at least 16GB of memory (in case you're using Linux). You
+   should have received one when purchasing the evaluation board.
 
 Software prerequisites
 -------------------------------------------------------------------------------
 
-#. HDL build environment for ADI reference designs:
+.. note::
 
-   - Vivado version supported by the active ADI HDL branch/release
-   - GNU Make and a Linux/Cygwin/WSL shell environment
+   Pre-built files for this reference design are not yet available.
+   The files must be built manually using the links below. Official release
+   artifacts will be provided here once available. For now, check:
 
-#. ADI HDL source tree with AD916x project:
+     -  :external+hdl:ref:`Build an HDL project <build_hdl>`
+     -  :external+hdl:ref:`Building the boot image BOOT.BIN <build_boot_bin>`
+     -  :ref:`linux-kernel zynqmp`
 
-   - :git-hdl:`projects/ad916x_fmc <projects/ad916x_fmc>`
+   You can also check the available Linux driver Linux at :git-linux:`AD9162 IIO driver <drivers/iio/frequency/ad9162.c>` 
+   and the HDL repository at :git-hdl:`EVAL-AD916X HDL <projects/ad916x_fmc>`.
 
-#. One of the software control paths:
 
-   - ADI Linux/Kuiper image workflow for runtime bring-up
+The following files must be gathered into a single working directory
+before programming the board:
 
-#. Optional host tools:
+- HDL boot image: ``BOOT.BIN``
+- Linux Kernel image: ``uImage``
+- Linux device tree: ``devicetree.dtb``
+  - Built from available dts files for AD916x in the Linux kernel source tree:
+    :git-hdl:`EVAL-AD916X HDL <projects/ad916x_fmc/zcu102>` (check README for details)
 
-   - Serial terminal application for UART logs
-   - :git-iio-oscilloscope:`IIO-Oscilloscope <releases>`
-   - Spectrum analyzer or RF measurement instrument for DAC output validation
+Normally, for basic functionalities regarding visualizing the
+data received from the FPGA, we use the following:
 
-#. SD card setup for Linux flow:
-
-   - 8 GB minimum, 16 GB recommended
-   - Prepared using :dokuwiki:`ZynqMP SD image instructions <resources/tools-software/linux-software/zynq_images>`
-
-Reference links
--------------------------------------------------------------------------------
-
-- :external+hdl:doc:`AD916x-FMC HDL project page <projects/ad916x_fmc/index>`
-- :external+hdl:doc:`Build an HDL project <user_guide/build_hdl>`
-- :adi:`UG-1526 AD916x user guide <media/en/technical-documentation/user-guides/AD9161-9162-9163-9164-UG-1526.pdf>`
-- :dokuwiki:`AD-FMCDAQ2 ZCU102 hardware setup reference <resources/eval/user-guides/ad-fmcdaq2-ebz/quickstart/zcu102>`
-- :dokuwiki:`AD9081 ZynqMP/ZCU102 setup and validation reference <resources/eval/user-guides/ad9081_fmca_ebz/quickstart/zynqmp>`
+#. :doc:`IIO Oscilloscope </software/iio-oscilloscope/index>`, a graphical
+   tool for capturing and visualizing IIO device data
+#. :external+scopy:doc:`Scopy <index>` v2.0 or later
+   (must contain the IIO plugin)
+#. UART terminal application (PuTTY/TeraTerm/Minicom), 115200 8N1
 
 .. note::
 
-   Validate your selected JESD mode, DAC device, and lane-rate combination
-   before hardware bring-up, and ensure the clocking setup matches the
-   configuration.
+   :adi:`ADI <>` does not offer FPGA carrier platforms for sale or loan;
+   getting one yourself is the normal part of development or evaluation.

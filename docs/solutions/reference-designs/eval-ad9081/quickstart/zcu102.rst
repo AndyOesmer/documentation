@@ -100,7 +100,6 @@ connected to the proper ttyUSB or COM port:
 .. collapsible:: Complete boot log
 
    ::
-
       U-Boot 2018.01-21442-gf06dec3cab (Nov 10 2023 - 16:08:56 +0200) Xilinx ZynqMP ZCU102 revA, Build: jenkins-development-build_uboot-6
 
       I2C:   ready
